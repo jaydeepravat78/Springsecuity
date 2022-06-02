@@ -34,11 +34,11 @@ public class WebSercuity extends  WebSecurityConfigurerAdapter{
 			.antMatchers("/signin", "/signup", "/", "/home", "/oauth2/**").permitAll()
 			.anyRequest().authenticated()
 			.and()
-			.oauth2Login();
+//			.oauth2Login();
 			
-//			.sessionManagement()
-//			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//		http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
+			.sessionManagement()
+			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
 	}
 
 	@Override
